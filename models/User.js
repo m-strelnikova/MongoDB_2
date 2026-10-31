@@ -22,11 +22,31 @@ const userSchema = new mongoose.Schema({
     },
     isActive: { type: Boolean, default: "true" },
     timestamps: true,
+    avatarUrl: {
+        type: String,
+        trim: true,
+    },
+    bio: {
+        type: String,
+        trim: true,
+        maxlength: 300,
+    },
     profile: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Profile",
         unique: true
     },
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: []
+    }],
+    following: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: []
+    }],
+    lastLoginAt: { type: Date, default: null }
 });
 
 const User = mongoose.model("User", userSchema);
