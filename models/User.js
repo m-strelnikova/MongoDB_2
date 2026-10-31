@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
     profile: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Profile", 
-        required: true, 
+        ref: "Profile",
         unique: true
     },
 });

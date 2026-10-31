@@ -38,10 +38,11 @@ const profileSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        unique: true,
+        required: true, 
+        unique: true
     },
 });
 
-const Profile = mongoose.model("User", profileSchema);
+const Profile = mongoose.model("Profile", profileSchema);
 
 export default Profile; 
