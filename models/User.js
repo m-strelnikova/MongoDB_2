@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        lowercase: true,
         trim: true,
         match: [/^\S+@\S+\.\S+$/, "Invalid email format"]
     },
@@ -18,7 +19,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: ["user", "admin", "moderator"],
-        default: 'user'
+        default: "user"
     },
     isActive: { type: Boolean, default: "true" },
     timestamps: true,

@@ -22,7 +22,7 @@ const profileSchema = new mongoose.Schema({
             validator: function (value) {
                 return !value || value <= new Date();
             },
-            message: 'Date cannot be in the future'
+            message: "Date cannot be in the future"
         }
     },
     website: {
